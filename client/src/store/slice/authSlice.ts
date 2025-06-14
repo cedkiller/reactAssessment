@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import supabase from '../../config/config';
 import Swal from 'sweetalert2';
@@ -106,7 +106,7 @@ export const signupSlice = async (name: string, email2: string, pass2: string, c
     if (pass2 === conPass) {
         const hashPass = await bcrypt.hash(pass2, 10);
 
-        const {data, error} = await supabase.from('blog_users').insert({userName: name, userEmail: email2, userPass: hashPass});
+        const {error} = await supabase.from('blog_users').insert({userName: name, userEmail: email2, userPass: hashPass});
 
         if (error) {
             Swal.fire({

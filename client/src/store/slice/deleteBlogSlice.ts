@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import supabase from '../../config/config';
 import Swal from 'sweetalert2';
@@ -23,8 +23,8 @@ const deleteBlogSlice = createSlice({
     }
 });
 
-export const submitDeleteSlice = async (recordID: number, dispatch: any) => {
-    const {data, error} = await supabase.from('blog_record').delete().eq('recordID',recordID);
+export const submitDeleteSlice = async (recordID: number) => {
+    const {error} = await supabase.from('blog_record').delete().eq('recordID',recordID);
 
     if (error) {
         Swal.fire({

@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import supabase from '../../config/config';
 import Swal from 'sweetalert2';
@@ -88,7 +88,7 @@ export const getRecordSlice = async (dispatch: any) => {
     }
 }
 
-export const submitEditBlog = async (editID: number, editTitle: string, editContext: string, editFile: File | null, editImageUrl: string, dispatch: any) => {
+export const submitEditBlog = async (editID: number, editTitle: string, editContext: string, editFile: File | null, dispatch: any) => {
     // File Upload Function Start
     if (!editFile) {
         Swal.fire('Error', 'No file selected.', 'error');
@@ -111,7 +111,7 @@ export const submitEditBlog = async (editID: number, editTitle: string, editCont
     dispatch(setEditImageUrl(publicUrl));
     // File Upload Function End
 
-    const {data: data2, error: error2} = await supabase.from('blog_record').update({recordTitle: editTitle, recordContext: editContext, recordImg: publicUrl}).eq('recordID',editID);
+    const { error: error2} = await supabase.from('blog_record').update({recordTitle: editTitle, recordContext: editContext, recordImg: publicUrl}).eq('recordID',editID);
 
     if (error2) {
         Swal.fire({

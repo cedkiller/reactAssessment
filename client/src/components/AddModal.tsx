@@ -9,7 +9,6 @@ function AddModal() {
     const title = useSelector((state: RootState) => state.addModal.title);
     const context = useSelector((state: RootState) => state.addModal.context);
     const file = useSelector((state: RootState) => state.addModal.file);
-    const imageUrl = useSelector((state: RootState) => state.addModal.imageUrl);
 
     const closeModal = async () => {
         window.location.href='/Blog';
@@ -18,7 +17,7 @@ function AddModal() {
     const submit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        submitSlice(title, context, file, imageUrl, dispatch);
+        submitSlice(title, context, file, dispatch);
     };
     return (
         <>

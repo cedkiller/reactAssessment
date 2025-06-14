@@ -10,7 +10,6 @@ function EditModal() {
     const editTitle = useSelector((state: RootState) => state.blog.editTitle);
     const editContext = useSelector((state: RootState) => state.blog.editContext);
     const editFile = useSelector((state: RootState) => state.blog.editFile);
-    const editImageUrl = useSelector((state: RootState) => state.blog.editImageUrl);
 
     const closeModal = async () => {
         window.location.href='/Blog';
@@ -19,7 +18,7 @@ function EditModal() {
     const submit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        submitEditBlog(editID, editTitle, editContext, editFile, editImageUrl, dispatch);
+        submitEditBlog(editID, editTitle, editContext, editFile, dispatch);
     };
     return (
         <>

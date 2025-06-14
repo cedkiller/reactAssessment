@@ -57,7 +57,7 @@ function Blog() {
       showDenyButton: true
     }).then((result) => {
       if (result.isConfirmed) {
-        submitDeleteSlice(recordID, dispatch);
+        submitDeleteSlice(recordID);
       } else if (result.isDenied) {
         window.location.reload();
       }
