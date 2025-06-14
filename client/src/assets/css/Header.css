@@ -1,0 +1,17 @@
+.topBar {
+    padding: 15px 40px;
+    background-color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    transition: box-shadow 0.3s ease-in-out;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.topBar:hover {
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-menu {
+    transition: all 0.2s ease-in-out;
+}

@@ -1,0 +1,85 @@
+/* Base styles */
+.div {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 40px;
+    background: #ffffff;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.div:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+}
+
+.div3 {
+    flex: 0 0 100%;
+    max-width: 300px;
+    margin: 0 auto 20px auto;
+    text-align: center;
+}
+
+.img1 {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    margin: 10px auto;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.div2 {
+    flex: 1 1 100%;
+    margin: 20px 0;
+    font-size: 1.15rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+.div4 {
+    flex: 0 0 100%;
+    max-width: none;
+    margin: 20px auto 0 auto;
+    display: flex;
+    flex-direction: row; /* default: row for mobile */
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Medium screens: side by side layout */
+@media (min-width: 768px) {
+    .div {
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    .div3 {
+        flex: 0 0 auto;
+        margin: 0 20px 0 0;
+    }
+
+    .div2 {
+        flex: 1 1 auto;
+        margin: 0 20px;
+    }
+
+    .div4 {
+        flex: 0 0 auto;
+        flex-direction: column; /* vertical buttons for medium & up */
+        justify-content: center;
+        margin: 0 0 0 20px;
+    }
+}
+
+/* Large screens: limit text width */
+@media (min-width: 1024px) {
+    .div2 {
+        max-width: 675px;
+    }
+}
