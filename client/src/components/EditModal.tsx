@@ -1,9 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import type {RootState, AppDispatch} from '../store/store';
-import {setEditTitle, setEditContext, setEditFile, setEditImageUrl, submitEditBlog, setEditID} from '../store/slice/blogSlice';
-import supabase from '../config/config';
-import Swal from 'sweetalert2';
+import type {RootState} from '../store/store';
+import {setEditTitle, setEditContext, setEditFile, submitEditBlog} from '../store/slice/blogSlice';
 import '../assets/css/AddModal.css';
 
 function EditModal() {

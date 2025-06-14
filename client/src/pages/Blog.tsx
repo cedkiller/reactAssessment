@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import type { RootState, AppDispatch } from '../store/store';
+import type { RootState } from '../store/store';
 import {
   setShowAddModal,
   getRecordSlice,
-  setRecord,
   setShowEditModal,
   setEditTitle,
   setEditContext,
@@ -18,10 +16,8 @@ import AddModal from '../components/AddModal';
 import EditModal from '../components/EditModal';
 import '../assets/css/Blog.css';
 import supabase from '../config/config';
-import img1 from '../assets/img/Screenshot (154).png';
 
 function Blog() {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const showAddModal = useSelector((state: RootState) => state.blog.showAddModal);
   const record = useSelector((state: RootState) => state.blog.record);

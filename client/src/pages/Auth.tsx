@@ -1,14 +1,10 @@
-import React, {useEffect} from 'react';
-import {useNavigate, useParams} from 'react-router-dom';
+import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import type {RootState, AppDispatch} from '../store/store';
+import type {RootState} from '../store/store';
 import {setMode, setName, setEmail, setEmail2, setPass, setPass2, setConPass, loginSlice, signupSlice} from '../store/slice/authSlice';
-import Swal from 'sweetalert2';
-import supabase from '../config/config';
 import '../assets/css/Style.css';
 
 function Auth () {
-    const navigate = useNavigate();
     const dispatch = useDispatch();
     const mode = useSelector((state: RootState) => state.auth.mode);
     const name = useSelector((state: RootState) => state.auth.name);

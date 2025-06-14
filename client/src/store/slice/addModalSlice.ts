@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import supabase from '../../config/config';
 import Swal from 'sweetalert2';
@@ -40,7 +40,7 @@ const addModalSlice = createSlice({
     }
 })
 
-export const submitSlice = async (title: string, context: string, file: File | null, imageUrl: string, dispatch: any) => {
+export const submitSlice = async (title: string, context: string, file: File | null, dispatch: any) => {
     // File Upload Function Start
     if (!file) {
         Swal.fire('Error', 'No file selected.', 'error');
@@ -63,7 +63,7 @@ export const submitSlice = async (title: string, context: string, file: File | n
     dispatch(setImageUrl(publicUrl));
     // File Upload Function End
 
-    const { data: data2, error: error2 } = await supabase.from('blog_record').insert({
+    const { error: error2 } = await supabase.from('blog_record').insert({
         recordTitle: title,
         recordContext: context,
         recordImg: publicUrl,  
