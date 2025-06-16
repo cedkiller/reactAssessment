@@ -25,7 +25,7 @@ function Blog() {
 
   useEffect(() => {
     getRecord();
-  },[]);
+  },[dispatch]);
 
   const getRecord = async () => {
     getRecordSlice(dispatch);
@@ -38,7 +38,7 @@ function Blog() {
   const editBlog = async (recordID: number) => {
     const { data, error } = await supabase.from('blog_record').select('*').eq('recordID', recordID);
 
-    if (!error) {
+    if (!error && data && data.length > 0) {
       dispatch(setEditTitle(data[0].recordTitle));
       dispatch(setEditContext(data[0].recordContext));
       dispatch(setEditID(recordID));
