@@ -23,12 +23,9 @@ function Blog() {
   const record = useSelector((state: RootState) => state.blog.record);
   const showEditModal = useSelector((state: RootState) => state.blog.showEditModal);
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const recordsPerPage = 5; 
-
   useEffect(() => {
     getRecord();
-  });
+  },[]);
 
   const getRecord = async () => {
     getRecordSlice(dispatch);
@@ -65,6 +62,8 @@ function Blog() {
   };
 
 //   Paginator Function Start
+  const [currentPage, setCurrentPage] = useState(1);
+  const recordsPerPage = 5; 
   const indexOfLastRecord = currentPage * recordsPerPage;
   const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
   const currentRecords = record.slice(indexOfFirstRecord, indexOfLastRecord);
@@ -120,6 +119,7 @@ function Blog() {
           </div>
         ))}
 
+        {/* Paginator */}
         <div style={{ display: 'flex', justifyContent: 'center', margin: '20px 0', gap: '10px' }}>
           <button
             className="btn btn-secondary"
@@ -139,6 +139,8 @@ function Blog() {
             Next
           </button>
         </div>
+        {/* Paginator */}
+        
       </div>
     </>
   );
