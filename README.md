@@ -20,7 +20,7 @@ git clone [repository-url]
 npm install
 
 3. Start development server:
-npm start
+npm run dev
 ```
 
 ## Usage
